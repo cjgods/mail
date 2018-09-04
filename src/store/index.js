@@ -13,7 +13,6 @@ export default new Vuex.Store({
     fetchDataList ({commit, state}) {
       Vue.http.get('/api/getData')
         .then((res) => {
-          console.info(res.body)
           commit('updateDataList', res.body)
         }, (err) => {
           console.log(err)

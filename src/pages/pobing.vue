@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 export default {
   name: 'pobing',
   data () {
@@ -64,18 +63,17 @@ export default {
     }
   },
   mounted () {
-    // this.$store.dispatch('fetchDataList')
-    Vue.http.get('/static/db.json')
-      .then((res) => {
-        this.array = res.body.getQuestionArray
-        this.array2 = res.body.getQuestionArray2
-        console.info(this.array)
-        console.info(this.array2)
-        // commit('updateDataList', res.body)
-      }, (err) => {
-        console.log(err)
-      })
-
+    this.$store.dispatch('fetchDataList')
+    // Vue.http.get('/static/db.json')
+    //   .then((res) => {
+    //     this.array = res.body.getQuestionArray
+    //     this.array2 = res.body.getQuestionArray2
+    //     console.info(this.array)
+    //     console.info(this.array2)
+    //     // commit('updateDataList', res.body)
+    //   }, (err) => {
+    //     console.log(err)
+    //   })
     let list = this.$store.getters.getDataList
     this.array = list.getQuestionArray
     this.array2 = list.getQuestionArray2
